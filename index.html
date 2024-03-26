@@ -73,23 +73,27 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
   </style>
   
   <script type="text/javascript">
-      var urlParams = new URLSearchParams(window.location.search);
-      var queryValue = urlParams.get('q');      
-      var dom = "";
-      function autoRelated(data) {
-          var out = data[1];
-          for (i = 0; i < out.length; i++) {
-              var queryValue = out[i];
-              dom += `<aside><img alt="${queryValue}" src="https://tse1.mm.bing.net/th?q=${encodeURIComponent(queryValue)}" width="320" height="320" style="width:100%;height:auto;margin-right: 8px;margin-bottom: 8px;" /><small>Source: <i>${out[i]} from <a target='_blank' href='https://www.bing.com/images/search?q=${out[i]}'>bing.com</a></i></small><h3 style="text-transform: capitalize;"><a href="/search/${encodeURIComponent(queryValue)}">${out[i]}</a></h3><p align="justify"><b style="text-transform: capitalize;">${out[i]}</b> is widely regarded as one of the most comprehensive resources on ${out[i]} available today. With a diverse range of references, including scholarly articles and popular blogs, you're sure to find everything you need to satisfy your curiosity about this topic. So start exploring today and don't forget to save ${out[i]} for easy access in the future!</p></aside>`;
-          }
-          $("#relatedImage").html(dom);
+    var urlParams = new URLSearchParams(window.location.search);
+    var queryValue = urlParams.get('q');    
+    var kw = queryValue.replace(/-/g, ' ').replace(/\b\w/g, function(char) {
+      return char.toUpperCase();
+    });    
+
+    var dom = "";
+    function autoRelated(data) {
+      var out = data[1];
+      for (i = 0; i < out.length; i++) {
+        var kw = out[i];
+        dom += `<aside><img alt="${kw}" src="https://tse1.mm.bing.net/th?q=${encodeURIComponent(kw)}" width="320" height="320" style="width:100%;height:auto;margin-right: 8px;margin-bottom: 8px;" /><small>Source: <i>${out[i]} from <a target='_blank' href='https://www.bing.com/images/search?q=${out[i]}'>bing.com</a></i></small><h3 style="text-transform: capitalize;"><a href="/search/${encodeURIComponent(kw)}">${out[i]}</a></h3><p align="justify"><b style="text-transform: capitalize;">${out[i]}</b> is widely regarded as one of the most comprehensive resources on ${out[i]} available today. With a diverse range of references, including scholarly articles and popular blogs, you're sure to find everything you need to satisfy your curiosity about this topic. So start exploring today and don't forget to save ${out[i]} for easy access in the future!</p></aside>`;
       }
-      $(document).ready(function() {
-          var script = document.createElement("script");
-          script.type = "text/javascript";
-          script.src = "https://suggestqueries.google.com/complete/search?jsonp=autoRelated&hl=en&client=firefox&q=" + encodeURIComponent(queryValue);
-          document.getElementsByTagName("head")[0].appendChild(script);
-      });
+      $("#relatedImage").html(dom);
+    }
+    $(document).ready(function() {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://suggestqueries.google.com/complete/search?jsonp=autoRelated&hl=en&client=firefox&q=" + encodeURIComponent(queryValue);
+      document.getElementsByTagName("head")[0].appendChild(script);
+    });
   </script>
 </head>
 
@@ -118,8 +122,13 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
       </header>
     <div class="content">
       <article class="post">
-      <center><h1 id="title"></h1></center>    
-        <div class="post-content">          
+      <center><h1 id="title">${queryValue}</h1></center>    
+        <div class="post-content">
+          <center>
+            <img class='img-fluid mx-auto d-block' src='https://tse1.mm.bing.net/th?q=${queryValue}'/>
+            </center>
+            <p align='justify'>${kw} is a captivating topic and here at our site, we have a vast collection of visually stunning images related to it. Our images are carefully curated to provide you with a unique visual experience and to showcase the beauty of ${kw}. Whether you are searching for breathtaking landscapes, stylish abstract designs, or simply looking for inspiration, you will find the perfect image to suit your taste. So, sit back and enjoy browsing through our collection of captivating images related to ${kw}, and find the perfect one to bring a touch of art and beauty to your life.</p>          
+        <div class="text"></div>
         <section id='relatedImage'></section>
         </br><center><button class="btn"><a href="url_ke_file_yang_akan_diunduh"><b class="fa fa-download"></b> Download</a></button></center>
         </div>
@@ -143,30 +152,7 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
       </div>
     </footer>
     <script type="text/javascript" src="https://hugo-hello-friend.vercel.app/bundle.min.js"></script>
-  </div>        
-  
-  <!-- Skrip yang memuat data eksternal -->
-  <script src="https://suggestqueries.google.com/complete/search?jsonp=autoRelated&amp;hl=en&amp;client=firefox&amp;q=${queryValue}"></script>  
-
-  <!-- Skrip untuk memproses data dan menambahkan konten ke halaman -->
-  <script>
-    var kw = queryValue.replace(/-/g, ' ').replace(/\b\w/g, function(char) {
-      return char.toUpperCase();
-    });
-
-    var h1Element = document.getElementById('title');
-    h1Element.innerHTML = kw;
-
-    var postContentElement = document.querySelector('.post-content');
-
-    var htmlToAdd = `<center>
-        <img class='img-fluid mx-auto d-block' src='https://tse1.mm.bing.net/th?q=${queryValue}'/>
-        </center>
-        <p align='justify'>${kw} is a captivating topic and here at our site, we have a vast collection of visually stunning images related to it. Our images are carefully curated to provide you with a unique visual experience and to showcase the beauty of ${kw}. Whether you are searching for breathtaking landscapes, stylish abstract designs, or simply looking for inspiration, you will find the perfect image to suit your taste. So, sit back and enjoy browsing through our collection of captivating images related to ${kw}, and find the perfect one to bring a touch of art and beauty to your life.</p>        
-        `;
-
-    postContentElement.innerHTML = htmlToAdd;
-  </script>
+  </div> 
 
   <!-- Skrip untuk menampilkan loader -->
   <script>
