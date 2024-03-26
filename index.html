@@ -71,9 +71,25 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
     margin: auto;
     }
   </style>
-  <script>
-    var urlParams = new URLSearchParams(window.location.search);
-    var queryValue = urlParams.get('q');
+  
+  <script type="text/javascript">
+      var urlParams = new URLSearchParams(window.location.search);
+      var queryValue = urlParams.get('q');      
+      var dom = "";
+      function autoRelated(data) {
+          var out = data[1];
+          for (i = 0; i < out.length; i++) {
+              var kw = out[i];
+              dom += `<aside><img alt="${kw}" src="https://tse1.mm.bing.net/th?q=${encodeURIComponent(kw)}" width="320" height="320" style="width:100%;height:auto;margin-right: 8px;margin-bottom: 8px;" /><small>Source: <i>${out[i]} from <a target='_blank' href='https://www.bing.com/images/search?q=${out[i]}'>bing.com</a></i></small><h3 style="text-transform: capitalize;"><a href="/search/${encodeURIComponent(kw)}">${out[i]}</a></h3><p align="justify"><b style="text-transform: capitalize;">${out[i]}</b> is widely regarded as one of the most comprehensive resources on ${out[i]} available today. With a diverse range of references, including scholarly articles and popular blogs, you're sure to find everything you need to satisfy your curiosity about this topic. So start exploring today and don't forget to save ${out[i]} for easy access in the future!</p></aside>`;
+          }
+          $("#relatedImage").html(dom);
+      }
+      $(document).ready(function() {
+          var script = document.createElement("script");
+          script.type = "text/javascript";
+          script.src = "https://suggestqueries.google.com/complete/search?jsonp=autoRelated&hl=en&client=firefox&q=" + encodeURIComponent(postTitle);
+          document.getElementsByTagName("head")[0].appendChild(script);
+      });
   </script>
 </head>
 
@@ -128,27 +144,10 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
       </div>
     </footer>
     <script type="text/javascript" src="https://hugo-hello-friend.vercel.app/bundle.min.js"></script>
-  </div>
-        
+  </div>        
   
   <!-- Skrip yang memuat data eksternal -->
-  <script src="https://suggestqueries.google.com/complete/search?jsonp=autoRelated&amp;hl=en&amp;client=firefox&amp;q=${queryValue}"></script>
-
-  <!-- Skrip untuk memproses hasil pemanggilan fungsi autoRelated -->
-  <script>
-    var dom = '';
-
-    function autoRelated(data) {
-      var out = data[1];
-      for (var i = 0; i < out.length; i++) {
-        var kw = out[i];
-        dom += `<aside><div><img alt="${kw}" src="https://tse1.mm.bing.net/th?q=${encodeURIComponent(kw)}" width="320" height="320" style="object-fit:cover;height:300px;width:100%;height:auto;margin-right: 8px;margin-bottom: 2px;"/><small><i>Source: ${kw} from bing.net<br/></i></small><div style="margin-top: 10px;"><h3><a style="text-transform:capitalize;" href="${baseUrl}search/q=${encodeURIComponent(kw)}">${kw}</a></h3><br/><p>Size: 1200 x 800 piksel</p><p>File Size: 5.2 MB<br/></p><br/><a target="_blank" href="https://s.id/download-images" download><button style="background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer;">Download Now</button></a></div></div><br/></aside>`;
-      }
-    }
-
-    var section = document.getElementById('relatedImage');
-    section.innerHTML += dom;
-  </script>
+  <script src="https://suggestqueries.google.com/complete/search?jsonp=autoRelated&amp;hl=en&amp;client=firefox&amp;q=${queryValue}"></script>  
 
   <!-- Skrip untuk memproses data dan menambahkan konten ke halaman -->
   <script>
