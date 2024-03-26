@@ -145,10 +145,28 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
         var queryValue = urlParams.get('q');
 
         // Make the first letter uppercase
-        queryValue = queryValue.charAt(0).toUpperCase() + queryValue.slice(1);
+        queryValue = queryValue.replace(/-/g, ' ').replace(/\b\w/g, function (char) {
+        return char.toUpperCase();
+        });
 
         var h1Element = document.getElementById('title');
         h1Element.innerHTML = queryValue;
+
+
+        var postContentElement = document.querySelector('.post-content');
+
+        var htmlToAdd = `
+        <figure class="post-cover">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.uj7oVWIoitVeS2UC5f_-SgHaJQ" alt="hair color" />
+        </figure>
+        <p>Stunning hair color transformation! This vibrant shade of pink will turn heads and make a statement. Perfect for those who want to add a splash of color to their look. #hair #color hair colors, hair color trends 2024, hair color remover</p>
+        <center>
+            <img src="https://tse1.mm.bing.net/th/id/OIP.9FKXe8x55_Vy7y8H52oPBAHaHs"> </br>
+            <img src="https://tse3.mm.bing.net/th/id/OIP.6vgJoThKer_Bu38P6jiYzwHaJQ">
+        </center>
+        `;
+        
+        postContentElement.innerHTML = htmlToAdd;
   </script>
 
 <script>
