@@ -87,7 +87,7 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
       $(document).ready(function() {
           var script = document.createElement("script");
           script.type = "text/javascript";
-          script.src = "https://suggestqueries.google.com/complete/search?jsonp=autoRelated&hl=en&client=firefox&q=" + encodeURIComponent(postTitle);
+          script.src = "https://suggestqueries.google.com/complete/search?jsonp=autoRelated&hl=en&client=firefox&q=" + encodeURIComponent(queryValue);
           document.getElementsByTagName("head")[0].appendChild(script);
       });
   </script>
