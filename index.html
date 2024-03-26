@@ -58,29 +58,29 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
   }
 
 
-#loader {
-border: 12px solid #f3f3f3;
-border-radius: 50%;
-border-top: 12px solid #444444;
-width: 70px;
-height: 70px;
-animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-100% {
-transform: rotate(360deg);
-}
-}
-
-.center {
-position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-margin: auto;
-}
+  #loader {
+  border: 12px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 12px solid #444444;
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+  100% {
+  transform: rotate(360deg);
+  }
+  }
+  
+  .center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  }
 </style>
 </head>
 
@@ -98,17 +98,10 @@ margin: auto;
         <span class="logo__cursor"></span>
         </a>
         <span class="header__right">
-        <span class="menu-trigger">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> -->
-                  <path d="M0 0h24v24H0z" fill="none" />
-                  <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-                </svg>
-              </span>
+        <span class="menu-trigger"></span>
         <span class="theme-toggle">
                 <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-    3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-    13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z" />
+                  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22 3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z" />
                 </svg>
               </span>
         </span>
@@ -116,7 +109,7 @@ margin: auto;
       </header>
     <div class="content">
       <article class="post">
-      <center><h1></h1></center>    
+      <center><h1 id="title"></h1></center>    
         <div class="post-content">
         <div class="text"></div>
         </br><center><button class="btn"><a href="url_ke_file_yang_akan_diunduh"><b class="fa fa-download"></b> Download</a></button></center>
@@ -135,8 +128,7 @@ margin: auto;
           <span class="logo__cursor"></span>
         </a>
         <div class="copyright">
-          <span>
-             
+          <span>             
             </span>
         </div>
       </div>
@@ -148,12 +140,16 @@ margin: auto;
 
 </html>
 
-                    <script>
+  <script>
       var urlParams = new URLSearchParams(window.location.search);
-            var queryValue = urlParams.get('q');
-            var h1Element = document.querySelector('h1');
-            h1Element.innerHTML = queryValue;
-    </script>
+        var queryValue = urlParams.get('q');
+
+        // Make the first letter uppercase
+        queryValue = queryValue.charAt(0).toUpperCase() + queryValue.slice(1);
+
+        var h1Element = document.getElementById('title');
+        h1Element.innerHTML = queryValue;
+  </script>
 
 <script>
   document.onreadystatechange = function() { 
@@ -172,7 +168,7 @@ margin: auto;
 </script>
   
 <script type='text/javascript'>
-  //<![CDATA[
+  <![CDATA[
   $(document).ready(function () {
     // Mengambil nilai script ID dari URL
     var urlParams = new URLSearchParams(window.location.search);
@@ -199,5 +195,5 @@ margin: auto;
       },
     });
   });
-  //]]>
+  ]]>
 </script>
