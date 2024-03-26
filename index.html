@@ -2,13 +2,6 @@
 <html lang="en">
 
 <head>
-<meta name="p:domain_verify" content="2989c046d12788ec0d1af7c5254c0b4e" />
-<script>
-var scriptID ="AKfycbzN5SjS64XRLz1edsF3F9uZ0IHEaENSfmOmeeIK4KPtmL7y0IoumfedXdpqMUma_HwV" // Masukan Web App ID dari spreadsheeet
-var urlParams = new URLSearchParams(window.location.search);
-var queryValue = urlParams.get('q');
-document.title = queryValue;
-</script>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante.
@@ -27,11 +20,7 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
   <link href="https://hugo-hello-friend.vercel.app//fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
   <link href="https://hugo-hello-friend.vercel.app//fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
   <link href="https://hugo-hello-friend.vercel.app//fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="/posts/113uh13b1ib1iyeb1/cover.jpg" />
-  <meta name="twitter:title" content="Hello Friend" />
-  <meta name="twitter:description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
   <meta property="og:title" content="Hello Friend" />
   <meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante." />
   <meta property="og:type" content="article" />
@@ -42,46 +31,46 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
   <meta property="article:modified_time" content="2022-01-25T00:00:00+00:00" />
   <meta property="og:site_name" content="Hello Friend" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<style>
-  .btn {
-    background-color: DodgerBlue;
-    border: none;
-    color: white;
-    padding: 12px 30px;
-    cursor: pointer;
-    font-size: 20px;
-  }
+  <style>
+    .btn {
+      background-color: DodgerBlue;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      cursor: pointer;
+      font-size: 20px;
+    }
 
-  /* Darker background on mouse-over */
-  .btn:hover {
-    background-color: RoyalBlue;
-  }
+    /* Darker background on mouse-over */
+    .btn:hover {
+      background-color: RoyalBlue;
+    }
 
 
-  #loader {
-  border: 12px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 12px solid #444444;
-  width: 70px;
-  height: 70px;
-  animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-  100% {
-  transform: rotate(360deg);
-  }
-  }
-  
-  .center {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  }
-</style>
+    #loader {
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 12px solid #444444;
+    width: 70px;
+    height: 70px;
+    animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+    100% {
+    transform: rotate(360deg);
+    }
+    }
+    
+    .center {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    }
+  </style>
 </head>
 
 <body><div id="loader" class="center"></div>
@@ -140,34 +129,27 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
 
 </html>
 
-  <script>
-      var urlParams = new URLSearchParams(window.location.search);
-        var queryValue = urlParams.get('q');
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var queryValue = urlParams.get('q');
 
-        // Make the first letter uppercase
-        queryValue = queryValue.replace(/-/g, ' ').replace(/\b\w/g, function (char) {
+    var kw = queryValue.replace(/-/g, ' ').replace(/\b\w/g, function (char) {
         return char.toUpperCase();
-        });
+    });
 
-        var h1Element = document.getElementById('title');
-        h1Element.innerHTML = queryValue;
+    var h1Element = document.getElementById('title');
+    h1Element.innerHTML = kw;
 
+    var postContentElement = document.querySelector('.post-content');
 
-        var postContentElement = document.querySelector('.post-content');
+    var htmlToAdd = `
+    <img class='img-fluid mx-auto d-block' src='https://tse1.mm.bing.net/th?q=${queryValue}'/>
+    </center>
+    <p align='justify'>${kw} is a captivating topic and here at our site, we have a vast collection of visually stunning images related to it. Our images are carefully curated to provide you with a unique visual experience and to showcase the beauty of ${kw}. Whether you are searching for breathtaking landscapes, stylish abstract designs, or simply looking for inspiration, you will find the perfect image to suit your taste. So, sit back and enjoy browsing through our collection of captivating images related to ${kw}, and find the perfect one to bring a touch of art and beauty to your life.</p>
+    `;
 
-        var htmlToAdd = `
-        <figure class="post-cover">
-            <img src="https://tse1.mm.bing.net/th/id/OIP.uj7oVWIoitVeS2UC5f_-SgHaJQ" alt="hair color" />
-        </figure>
-        <p>Stunning hair color transformation! This vibrant shade of pink will turn heads and make a statement. Perfect for those who want to add a splash of color to their look. #hair #color hair colors, hair color trends 2024, hair color remover</p>
-        <center>
-            <img src="https://tse1.mm.bing.net/th/id/OIP.9FKXe8x55_Vy7y8H52oPBAHaHs"> </br>
-            <img src="https://tse3.mm.bing.net/th/id/OIP.6vgJoThKer_Bu38P6jiYzwHaJQ">
-        </center>
-        `;
-        
-        postContentElement.innerHTML = htmlToAdd;
-  </script>
+    postContentElement.innerHTML = htmlToAdd;
+</script>
 
 <script>
   document.onreadystatechange = function() { 
@@ -183,35 +165,4 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
                 "body").style.visibility = "visible"; 
             } 
         }; 
-</script>
-  
-<script type='text/javascript'>
-  <![CDATA[
-  $(document).ready(function () {
-    // Mengambil nilai script ID dari URL
-    var urlParams = new URLSearchParams(window.location.search);
-    var slug1 = urlParams.get("q") || "index.html";
-    console.log({loc : document.location})
-    var slug = document.location.pathname.substring(1) || slug1;
-
-    const myurl ="https://script.google.com/macros/s/";
-    const params = encodeURIComponent(slug);
-    console.log(myurl + scriptID + "/exec?slug=" + params);
-    
-    // Mengirim permintaan AJAX dengan menggunakan script ID dari URL
-    $.ajax({
-      url: myurl + scriptID + "/exec?slug=" + params,
-      dataType: "text",
-      success: function (data) {
-        console.log({data})
-        $(".text").html(data);
-        if (data.includes("&lt;")) {
-          let text = $(".text").text();
-          var mydata = text;
-          document.body.innerHTML = mydata;
-        }
-      },
-    });
-  });
-  ]]>
-</script>
+</script> 
