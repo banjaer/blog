@@ -124,17 +124,17 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
       </header>
     <div class="content">
       <article class="post">
-      <center><h1 id='agc_search'>${queryValue}</h1></center>    
+        <center><h1 id='agc_search'></h1></center>    
         <div class="post-content">
-          <center>
-            <img class='img-fluid mx-auto d-block' src='https://tse1.mm.bing.net/th?q=${queryValue}'/>
+            <center>
+                <img class='img-fluid mx-auto d-block' src='' id="imageSrc"/>
             </center>
-            <p align='justify'>${queryValue} is a captivating topic and here at our site, we have a vast collection of visually stunning images related to it. Our images are carefully curated to provide you with a unique visual experience and to showcase the beauty of ${queryValue}. Whether you are searching for breathtaking landscapes, stylish abstract designs, or simply looking for inspiration, you will find the perfect image to suit your taste. So, sit back and enjoy browsing through our collection of captivating images related to ${kw}, and find the perfect one to bring a touch of art and beauty to your life.</p>          
-        <div class="text"></div>
-        <section id='relatedImage'></section>
-        </br><center><button class="btn"><a href="url_ke_file_yang_akan_diunduh"><b class="fa fa-download"></b> Download</a></button></center>
+            <p align='justify' id="postDescription"></p>          
+            <div class="text"></div>
+            <section id='relatedImage'></section>
+            </br><center><button class="btn" id="downloadButton"><b class="fa fa-download"></b> Download</button></center>
         </div>
-      </article>
+    </article>
     </div>
     <footer class="footer">
       <div class="footer__inner">
@@ -157,9 +157,23 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
   </div> 
 
   <script>
-      var urlParams = new URLSearchParams(window.location.search);
-      var queryValue = urlParams.get('q');            
-    </script>
+    // Mendapatkan nilai query dari URL
+    var urlParams = new URLSearchParams(window.location.search);
+    // Mendapatkan nilai dari parameter 'q'
+    var queryValue = urlParams.get('q');    
+
+    // Mengisi judul dengan nilai queryValue
+    document.getElementById('agc_search').innerText = queryValue;
+
+    // Mengisi sumber gambar dengan nilai queryValue
+    document.getElementById('imageSrc').src = 'https://tse1.mm.bing.net/th?q=' + queryValue;
+
+    // Mengisi deskripsi posting dengan nilai queryValue
+    document.getElementById('postDescription').innerText = queryValue + ' is a captivating topic and here at our site, we have a vast collection of visually stunning images related to it. Our images are carefully curated to provide you with a unique visual experience and to showcase the beauty of ' + queryValue + '. Whether you are searching for breathtaking landscapes, stylish abstract designs, or simply looking for inspiration, you will find the perfect image to suit your taste. So, sit back and enjoy browsing through our collection of captivating images related to ' + queryValue + ', and find the perfect one to bring a touch of art and beauty to your life.';
+
+    // Menambahkan href pada tombol download
+    document.getElementById('downloadButton').href = 'https://www.blogsite.my.id/' + queryValue;
+</script>
   <!-- Skrip untuk menampilkan loader -->
   <script>
     document.onreadystatechange = function() {
