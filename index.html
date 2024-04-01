@@ -86,7 +86,7 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
       var out = data[1];
       for (i = 0; i < out.length; i++) {
         var kw = out[i];
-        dom += `<aside><img alt="${kw}" src="https://tse1.mm.bing.net/th?q=${encodeURIComponent(kw)}" width="320" height="320" style="width:100%;height:auto;margin-right: 8px;margin-bottom: 8px;" /><small>Source: <i>${out[i]} from <a target='_blank' href='https://www.bing.com/images/search?q=${out[i]}'>bing.com</a></i></small><h3 style="text-transform: capitalize;"><a href="/search/${encodeURIComponent(kw)}">${out[i]}</a></h3><p align="justify"><b style="text-transform: capitalize;">${out[i]}</b> is widely regarded as one of the most comprehensive resources on ${out[i]} available today. With a diverse range of references, including scholarly articles and popular blogs, you're sure to find everything you need to satisfy your curiosity about this topic. So start exploring today and don't forget to save ${out[i]} for easy access in the future!</p></aside>`;
+        dom += `<aside><h3 style="text-transform: capitalize; text-decoration: none;"><a href="/search/${encodeURIComponent(kw)}">${out[i]}</a></h3><img alt="${kw}" src="https://tse1.mm.bing.net/th?q=${encodeURIComponent(kw)}" width="320" height="320" style="width:100%;height:auto;margin-right: 8px;margin-bottom: 8px;" /><small>Source: <i>${out[i]} from <a target='_blank' href='https://www.bing.com/images/search?q=${out[i]}'>bing.com</a></i></small></aside>`;
       }
       $("#relatedImage").html(dom);
     }
@@ -129,10 +129,11 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
             <center>
                 <img class='img-fluid mx-auto d-block' src='' id="imageSrc"/>
             </center>
-            <p align='justify' id="postDescription"></p>          
-            <div class="text"></div>
+            <div class="text">
+            <p align='justify' id="postDescription"></p> 
+            </br><center><button class="btn"><a id="downloadLink" href=""><b class="fa fa-download"></b> Download</a></button></center>            
             <section id='relatedImage'></section>
-            </br><center><button class="btn" id="downloadButton"><b class="fa fa-download"></b> Download</button></center>
+            </div>
         </div>
     </article>
     </div>
@@ -164,15 +165,9 @@ Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes
 
     // Mengisi judul dengan nilai queryValue
     document.getElementById('agc_search').innerText = queryValue;
-
-    // Mengisi sumber gambar dengan nilai queryValue
     document.getElementById('imageSrc').src = 'https://tse1.mm.bing.net/th?q=' + queryValue;
-
-    // Mengisi deskripsi posting dengan nilai queryValue
-    document.getElementById('postDescription').innerText = queryValue + ' is a captivating topic and here at our site, we have a vast collection of visually stunning images related to it. Our images are carefully curated to provide you with a unique visual experience and to showcase the beauty of ' + queryValue + '. Whether you are searching for breathtaking landscapes, stylish abstract designs, or simply looking for inspiration, you will find the perfect image to suit your taste. So, sit back and enjoy browsing through our collection of captivating images related to ' + queryValue + ', and find the perfect one to bring a touch of art and beauty to your life.';
-
-    // Menambahkan href pada tombol download
-    document.getElementById('downloadButton').href = 'https://www.blogsite.my.id/' + queryValue;
+    document.getElementById('postDescription').innerText = queryValue + ' is a captivating topic and here at our site, we have a vast collection of visually stunning images related to it.';
+    document.getElementById('downloadLink').href = 'https://www.blogsite.my.id/' + queryValue;
 </script>
   <!-- Skrip untuk menampilkan loader -->
   <script>
