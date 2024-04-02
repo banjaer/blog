@@ -5,174 +5,83 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Captivating topic and here at our site, we have a vast collection of visually stunning images" />
-  <meta name="keywords" content="blog, iamge, wallpaper, photo" />
-  <link rel="stylesheet" href="https://hugo-hello-friend.vercel.app//css/style.css" />
-  <link rel="stylesheet" href="https://hugo-hello-friend.vercel.app//style.css" />
+  <meta name="keywords" content="blog, image, wallpaper, photo" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://hugo-hello-friend.vercel.app//img/apple-touch-icon-144-precomposed.png" />
   <link rel="shortcut icon" href="https://hugo-hello-friend.vercel.app//img/favicon.png" />
-  <link href="https://hugo-hello-friend.vercel.app//fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-  <link href="https://hugo-hello-friend.vercel.app//fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-  <link href="https://hugo-hello-friend.vercel.app//fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-  <link href="https://hugo-hello-friend.vercel.app//fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-  <link href="https://hugo-hello-friend.vercel.app//fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-  <link href="https://hugo-hello-friend.vercel.app//fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
   <link href='https://i.pinimg.com' rel='preconnect'/>
   <link href='https://i.pinimg.com' rel='dns-prefetch'/>
   <link href='https://cdn.jsdelivr.net' rel='dns-prefetch'/>  
   <style>
-    .btn {
-      background-color: DodgerBlue;
-      border: none;
-      color: white;
-      padding: 12px 30px;
-      cursor: pointer;
-      font-size: 20px;
-    }
-
-    /* Darker background on mouse-over */
-    .btn:hover {
-      background-color: RoyalBlue;
-    }
-
-
-    #loader {
-    border: 12px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 12px solid #444444;
-    width: 70px;
-    height: 70px;
-    animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-    100% {
-    transform: rotate(360deg);
-    }
-    }
-    
-    .center {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    }
+    .btn {background-color: DodgerBlue;border: none;color: white;padding: 12px 30px;cursor: pointer;font-size: 20px;}/* Darker background on mouse-over */.btn:hover {background-color: RoyalBlue;}/* Loader Styles */#loader {border: 4px solid #f3f3f3;border-top: 4px solid #444444;border-radius: 50%;width: 50px;height: 50px;animation: spin 1s linear infinite;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 9999;background-color: rgba(255, 255, 255, 0.7); /* Background color with opacity */}@keyframes spin {100% {transform: rotate(360deg);}}.search-form {margin-top: 20px;}form {display: flex;justify-content: center;margin-top: 20px;}input[type="text"] {padding: 10px;border: 2px solid DodgerBlue;border-radius: 5px;outline: none;font-size: 16px;}input[type="submit"] {background-color: DodgerBlue;color: white;border: none;border-radius: 5px;padding: 10px 20px;margin-left: 10px;cursor: pointer;font-size: 16px;}input[type="submit"]:hover {background-color: RoyalBlue;}
   </style>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script type="text/javascript">
-    var urlParams = new URLSearchParams(window.location.search);
-    var queryValue = urlParams.get('q');    
-    var kw = queryValue.replace(/-/g, ' ').replace(/\b\w/g, function(char) {
-      return char.toUpperCase();
-    });    
-
-    var dom = "";
-    function autoRelated(data) {
-      var out = data[1];
-      for (i = 0; i < out.length; i++) {
-        var kw = out[i];
-        dom += `<aside><h3 style="text-transform: capitalize;"><a style="text-decoration: none;" href="/search/${encodeURIComponent(kw)}">${out[i]}</a></h3><img alt="${kw}" src="https://tse1.mm.bing.net/th?q=${encodeURIComponent(kw)}" width="320" height="320" style="width:100%;height:auto;margin-right: 8px;margin-bottom: 8px;" /><small>Source: <i>${out[i]} from <a target='_blank' href='https://www.bing.com/images/search?q=${out[i]}'>bing.com</a></i></small></aside>`;
-      }
-      $("#relatedImage").html(dom);
-    }
-    $(document).ready(function() {
-      var script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = "https://suggestqueries.google.com/complete/search?jsonp=autoRelated&hl=en&client=firefox&q=" + encodeURIComponent(queryValue);
-      document.getElementsByTagName("head")[0].appendChild(script);
-    });
-  </script>
+  <script type="text/javascript"> var urlParams = new URLSearchParams(window.location.search);var queryValue = urlParams.get('q');var kw = queryValue.replace(/-/g, ' ').replace(/\b\w/g, function(char) {return char.toUpperCase();});var dom = "";function autoRelated(data) {var out = data[1];for (i = 0; i < out.length; i++) {var kw = out[i];dom += `<aside><h3 style="text-transform: capitalize;"><a style="text-decoration: none;" href="/search/${encodeURIComponent(kw)}">${out[i]}</a></h3><img alt="${kw}" src="https://tse1.mm.bing.net/th?q=${encodeURIComponent(kw)}" width="320" height="320" style="width:100%;height:auto;margin-right: 8px;margin-bottom: 8px;" /><small>Source: <i>${out[i]} from <a target='_blank' href='https://www.bing.com/images/search?q=${out[i]}'>bing.com</a></i></small></aside>`;}$("#relatedImage").html(dom);}$(document).ready(function() {var script = document.createElement("script");script.type = "text/javascript";script.src = "https://suggestqueries.google.com/complete/search?jsonp=autoRelated&hl=en&client=firefox&q=" + encodeURIComponent(queryValue);document.getElementsByTagName("head")[0].appendChild(script);}); </script>
 </head>
 
-<body><div id="loader" class="center"></div>
+<body>
+  <div id="loader"></div>
   <div class="container">
     <header class="header">
-        <span class="header__inner">
-            <a href="/" class="logo" style="text-decoration: none;">
-              <span class="logo__mark">
-                <svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
-                  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
-                </svg>
-              </span>
-        <span class="logo__text">Asset</span>
-        <span class="logo__cursor"></span>
+      <span class="header__inner">
+        <a href="/" class="logo" style="text-decoration: none;">
+          <span class="logo__mark">
+            <svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+              <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+            </svg>
+          </span>
+          <span class="logo__text">Asset</span>
+          <span class="logo__cursor"></span>
         </a>
         <span class="header__right">
-        <span class="menu-trigger"></span>
-        <span class="theme-toggle">
-                <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22 3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z" />
-                </svg>
-              </span>
+          <span class="menu-trigger"></span>
+          <span class="theme-toggle">
+            <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22 3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z" />
+            </svg>
+          </span>
         </span>
-        </span>
-      </header>
+      </span>
+    </header>
     <div class="content">
-      
       <article class="post">
-        <center><h1 id='agc_search'></h1></center>    
+        <center><h1 id='agc_search' style="text-transform: uppercase;"></h1></center>    
         <div class="post-content">
-            <center>
-                <img class='img-fluid mx-auto d-block' src='' id="imageSrc"/>
-            </center>
-            <div class="text">
+          <center>
+            <img class='img-fluid mx-auto d-block' src='' id="imageSrc"/>
+          </center>
+          <div class="text">
             <p align='justify' id="postDescription"></p> 
-            </br><center><button class="btn"><a id="downloadLink" href=""><b class="fa fa-download"></b> Download</a></button></center>            
+            <br><center id="downloadLink"></center>            
             <section id='relatedImage'></section>
-            </div>
+          </div>
         </div>
-    </article>
-      
+      </article>        
     </div>
     <footer class="footer">
       <div class="footer__inner">
         <a href="/" class="logo" style="text-decoration: none;">
           <span class="logo__mark">
-              <svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
-                <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
-              </svg>
-            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+              <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+            </svg>
+          </span>
           <span class="logo__text">Copyright @ <script type='text/javascript'>var creditsyear = new Date();document.write(creditsyear.getFullYear());</script> Asset</span>
           <span class="logo__cursor"></span>
         </a>
         <div class="copyright">
-          <span>             
-            </span>
+          <span></span>
         </div>
       </div>
     </footer>
     <script type="text/javascript" src="https://hugo-hello-friend.vercel.app/bundle.min.js"></script>
   </div> 
 
-  <script>    
-    var urlParams = new URLSearchParams(window.location.search);    
-    var queryValue = urlParams.get('q');
-    
-    document.getElementById('agc_search').innerText = queryValue;
-    document.getElementById('imageSrc').src = 'https://tse1.mm.bing.net/th?q=' + queryValue;
-    document.getElementById('postDescription').innerText = queryValue + ' is a captivating topic and here at our site, we have a vast collection of visually stunning images related to it.';
-    document.getElementById('downloadLink').href = 'https://www.blogsite.my.id/' + queryValue;
-</script>
+  <script> var urlParams = new URLSearchParams(window.location.search); var queryValue = urlParams.get('q'); if (queryValue) { document.getElementById('agc_search').innerText = queryValue; document.getElementById('imageSrc').src = 'https://tse1.mm.bing.net/th?q=' + queryValue; document.getElementById('postDescription').innerText = queryValue + ' is a captivating topic and here at our site, we have a vast collection of visually stunning images related to it.'; document.getElementById('downloadLink').innerHTML = `<button class="btn"><b class="fa fa-download"></b>  Download</button>`; document.getElementById('downloadLink').addEventListener('click', function(event) { event.preventDefault(); window.location.href = 'https://www.blogsite.my.id/${queryValue}'; }); document.getElementById('downloadLink').addEventListener('click', function(event) { event.preventDefault(); window.location.href = 'https://www.blogsite.my.id/' + encodeURIComponent(queryValue); }); } else { document.getElementById('agc_search').innerText = "Search Images 🔎"; document.querySelector('.post-content').innerHTML = `<form id="searchForm" action="/" method="get"><input type="text" name="q" id="searchInput" autofocus><input type="submit" value="Search" autocomplete="off"></form>`; }; </script>
   
   <!-- Skrip untuk menampilkan loader -->
-  <script>
-    document.onreadystatechange = function() {
-      if (document.readyState !== "complete") {
-        document.querySelector(
-          "body").style.visibility = "hidden";
-        document.querySelector(
-          "#loader").style.visibility = "visible";
-      } else {
-        document.querySelector(
-          "#loader").style.display = "none";
-        document.querySelector(
-          "body").style.visibility = "visible";
-      }
-    };
-  </script>
+  <script> document.onreadystatechange = function() { if (document.readyState !== "complete") { document.querySelector("#loader").style.display = "block"; } else { document.querySelector("#loader").style.display = "none"; document.querySelector("body").style.visibility = "visible"; }}; </script>
 </body>
 
 </html>
-
